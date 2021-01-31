@@ -32,7 +32,7 @@ Resources provided after understanding the client are extremely credible, handpi
 hippo is available any and everys single time you need it. 
 
 ##### Anonymity
-Most important of all none of the data is stored on the cloud. In fact, you do not even need to create an account to use hippo's services. Keep your therapy chats anonymous and secure.
+Most important of all you deleting your data is as easy as clicking a button. In fact, you do not even need to create an account to use hippo's services. Keep your therapy chats anonymous and secure.
 
 ## Contributors
 - [Afrah](https://github.com/aali179)
