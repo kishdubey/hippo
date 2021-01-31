@@ -12,10 +12,6 @@ app = Flask(__name__)
 def index():
     return render_template("hippo.html")
 
-MODEL_PATH = "classification_model/model.h5"
-TOKENIZER_PATH =  "classification_model/tokenizer.pickle"
-tokenizer, model = _setup_models(TOKENIZER_PATH, MODEL_PATH)
-
 def _setup_models(TOKENIZER_PATH, MODEL_PATH):
     """
     Setting up model and tokenizer
@@ -26,6 +22,10 @@ def _setup_models(TOKENIZER_PATH, MODEL_PATH):
     model = keras.models.load_model(MODEL_PATH)
 
     return tokenizer, model
+
+MODEL_PATH = "classification_model/model.h5"
+TOKENIZER_PATH =  "classification_model/tokenizer.pickle"
+tokenizer, model = _setup_models(TOKENIZER_PATH, MODEL_PATH)
 
 def _get_key(value):
     """
