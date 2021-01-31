@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
+
+#from chatbot import bot
 
 import keras
 from  keras.preprocessing.text import Tokenizer
@@ -11,6 +13,10 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template("hippo.html")
+
+@app.route('/chat')
+def chat():
+    return render_template("chat.html")
 
 def _setup_models(TOKENIZER_PATH, MODEL_PATH):
     """
