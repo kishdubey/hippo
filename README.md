@@ -4,7 +4,8 @@
 
 hippo provides 24/7 anonymous and secure therapy services, don't worry hippo will listen to you for as long as you want, you are not bothering him! hippo will check up on you each daily, talk with you about your thoughts, provide helpful tips and insights to tackle the many emotions life throws our way. In addition, hippo detects your emotions unintrusively through the conversation and helps detect patterns in your life that cause them. hippo is known for its anonymity and security, you can delete all of your data which is collected locally through a click of a button, poof its gone!
 
-![](https://cdn.discordapp.com/attachments/804880599034232883/805237383846297650/hippo-47726_1280.png =100x120)
+<img src="https://cdn.discordapp.com/attachments/804880599034232883/805237383846297650/hippo-47726_1280.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="100" height="120" />
+
 
 ## Local Installation & Setup
 
