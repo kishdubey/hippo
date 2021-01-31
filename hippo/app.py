@@ -18,9 +18,7 @@ def _setup_models(TOKENIZER_PATH, MODEL_PATH):
     """
     with open(TOKENIZER_PATH, 'rb') as handle:
         tokenizer = pickle.load(handle)
-
     model = keras.models.load_model(MODEL_PATH)
-
     return tokenizer, model
 
 MODEL_PATH = "classification_model/model.h5"
