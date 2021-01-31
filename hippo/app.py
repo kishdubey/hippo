@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for
 
-#from chatbot import bot
+from chatbot import bot
 
 import keras
 from  keras.preprocessing.text import Tokenizer
@@ -17,6 +17,14 @@ def index():
 @app.route('/chat')
 def chat():
     return render_template("chat.html")
+
+def _find_subwords(str, target):
+    li = str.split(" ")
+    for word in li:
+        if word == target:
+            return True
+
+    return False
 
 def _setup_models(TOKENIZER_PATH, MODEL_PATH):
     """
@@ -51,7 +59,22 @@ def predict(sentence, model, tokenizer):
     sentence_seq=tokenizer.texts_to_sequences(sentence_lst)
     sentence_padded=pad_sequences(sentence_seq,maxlen=80,padding='post')
     ans=_get_key(model.predict_classes(sentence_padded))
-    return "The emotion predicted is", ans
+    return ans
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    emotion_used = False
+    while True:
+        request=input('You: ')
+        if _find_subwords(request, "tips"):
+            print('hippo: Here are some resources that can help, https://www.ottawapublichealth.ca/en/public-health-topics/mental-health.aspx')
+        elif request.lower() == 'bye' or _find_subwords(request.lower(), "bye"):
+            print('hippo: Bye')
+            break
+        elif emotion_used or request.lower() == "hello" or request.lower() == "hi":
+            response=bot.get_response(request)
+            print('hippo: ',response)
+        elif not emotion_used:
+            emotion_used = True
+            emotion = predict(request, model, tokenizer)
+            response = f"Ah, I see you are feeling {emotion}. Would you like to tell me more?"
+            print('hippo: ', response)
