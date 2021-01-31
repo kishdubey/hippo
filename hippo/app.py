@@ -34,6 +34,10 @@ def get_bot_response():
         response = f"Ah, I see you are feeling {emotion}. Would you like to tell me more?"
         return response
 
+@app.route("/mood")
+def mood():
+    return render_template("mood.html")
+
 def _find_subwords(str, target):
     li = str.split(" ")
     for word in li:
