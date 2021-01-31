@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 
 from chatbot import bot
 
@@ -16,23 +16,23 @@ def index():
 
 @app.route('/chat')
 def chat():
-    emotion_used = False
-    while True:
-        request=input('You: ')
-        if _find_subwords(request, "tips"):
-            print('hippo: Here are some resources that can help, https://www.ottawapublichealth.ca/en/public-health-topics/mental-health.aspx')
-        elif request.lower() == 'bye' or _find_subwords(request.lower(), "bye"):
-            print('hippo: Bye')
-            break
-        elif emotion_used or request.lower() == "hello" or request.lower() == "hi":
-            response=bot.get_response(request)
-            print('hippo: ',response)
-        elif not emotion_used:
-            emotion_used = True
-            emotion = predict(request, model, tokenizer)
-            response = f"Ah, I see you are feeling {emotion}. Would you like to tell me more?"
-            print('hippo: ', response)
     return render_template("chat.html")
+
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    emotion_used = False
+    if _find_subwords(userText, "tips"):
+        return 'Here are some resources that can help, https://www.ottawapublichealth.ca/en/public-health-topics/mental-health.aspx'
+    elif userText.lower() == 'bye' or _find_subwords(userText.lower(), "bye"):
+            return "Bye, I'm always here if you need me"
+    elif emotion_used or userText.lower() == "hello" or userText.lower() == "hi":
+        return str(bot.get_response(userText))
+    elif not emotion_used:
+        emotion_used = True
+        emotion = predict(userText, model, tokenizer)
+        response = f"Ah, I see you are feeling {emotion}. Would you like to tell me more?"
+        return response
 
 def _find_subwords(str, target):
     li = str.split(" ")
