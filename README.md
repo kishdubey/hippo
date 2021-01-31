@@ -19,3 +19,23 @@ Go to,
 ```sh
 http://localhost:5000/
 ```
+
+## Features
+##### Mood Classification
+Using a bidirectional long short-term memory keras model trained on dataset with 160,000 rows achieving an accuracy of 93% correctly classifying emotions including anger, joy, love, sadness, fear, and surprise. 
+
+
+##### Access To Credible Resources
+Resources provided after understanding the client are extremely credible, handpicked from organizations like Canadian Mental Health Association (CMHA).
+
+##### 24/7 Support
+hippo is available any and everys single time you need it. 
+
+##### Anonymity
+Most important of all none of the data is stored on the cloud. In fact, you do not even need to create an account to use hippo's services. Keep your therapy chats anonymous and secure.
+
+## Contributors
+- [Afrah](https://github.com/aali179)
+- [Kish](https://github.com/kishdubey)
+- [Isablel](https://github.com/isabelleona)
+- [Jorge](https://github.com/RobotIAm)
