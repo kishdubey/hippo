@@ -11,8 +11,8 @@ hippo provides 24/7 anonymous and secure therapy services, don't worry hippo wil
 
 ```sh
 git clone https://github.com/kishdubey/hippo.git
-pip install -r requirements.txt
 cd hippo
+pip install -r requirements.txt
 python3 app.py
 ```
 Go to,
